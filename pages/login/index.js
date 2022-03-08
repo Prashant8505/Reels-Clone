@@ -100,7 +100,7 @@ function Index() {
           <div className="forgot" style={{ color: 'blue' }}><Link href="ForgotPassword">Forgot Password?</Link></div>
         </div>
         <div className="bottom_card">
-          Don&apos;t have an account?  <Link href="signup"><span style={{ color: 'blue', cursor: 'pointer' }}>Sign Up</span></Link>
+          Dont have an account?  <Link href="signup"><span style={{ color: 'blue', cursor: 'pointer' }}>Sign Up</span></Link>
         </div>
       </div>
     </div>

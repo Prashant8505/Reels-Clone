@@ -101,7 +101,7 @@ function ForgotPassword() {
                     {/* <div className="forgot" style={{ color: 'blue' }}>Forgot Password?</div> */}
                 </div>
                 <div className="bottom_card">
-                    Don't have an account? <span style={{ color: 'blue' }}>Sign Up</span>
+                    Dont have an account? <span style={{ color: 'blue' }}>Sign Up</span>
                 </div>
             </div>
         </div>
