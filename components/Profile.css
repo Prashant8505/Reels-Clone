@@ -1,0 +1,31 @@
+.profile_upper{
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile_videos{
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.profile_videos > videos{
+    width: 20rem;
+    height: 50rem;
+    padding: 0.5rem;
+    margin: 2rem;
+}
+@media only screen and (max-width: 500px) {
+    .profile_upper{
+        flex-direction: column;
+    }
+}

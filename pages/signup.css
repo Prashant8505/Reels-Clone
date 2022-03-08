@@ -1,0 +1,28 @@
+.signup_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
+    flex-direction: column;
+}
+.signup_card{
+    width: 25rem;
+    /* height: 30rem; */
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.bottom_card{
+       width: 25rem;
+       margin-top: 1rem;
+       padding: 1rem;
+}
+
+@media only screen and (max-width:500px){
+    .signup_card{
+        width: 100%;
+    }
+    .bottom_card{
+        width: 100%;
+    }
+}

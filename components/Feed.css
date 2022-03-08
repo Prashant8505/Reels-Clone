@@ -1,0 +1,102 @@
+.feed-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.navbar{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height: 10vh;
+    width: 100%;
+}
+.nav_icons{
+    margin: 0.5rem;
+    color: black;
+}
+.nav-icontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upload-btn{
+    width: 15rem;
+    height: 10vh;
+}
+
+.video_container{
+    height: 80vh;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    overflow-y: scroll;
+    scrollbar-width: 0;
+}
+.video_container::-webkit-scrollbar{
+    display: none;
+}
+.post_container{
+    height: 80vh;
+    width: 20rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.post_container > video{
+    height: 80vh;
+    width: 20rem;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: blueviolet;
+}
+.video_info{
+    width: 20rem;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    bottom: 30px;
+    /* left: 5px; */
+}
+.avatar{
+    display: flex;
+    
+    justify-content: flex-start;
+    width: 70%;
+}
+.avatar > p{
+    margin-left: 0.5rem;
+}
+.post_like{
+    display: flex;
+    height: 3rem;
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   margin: 0;
+}
+.post_like > p{
+    margin: 0px;
+}
+/* .logo{
+    height: 90%;
+} */
+@media only screen and (max-width: 400px) {
+    .avatar{
+        padding-left: 1rem;
+    }
+    .logo{
+        width: 110px;
+        height: 90%;
+    }
+    .post_container{
+        width: 18rem;
+        height: 80vh;
+        /* padding: 10px; */
+    }
+    .video_info{
+        width: 15rem;
+    }
+}
