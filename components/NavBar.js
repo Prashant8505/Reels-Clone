@@ -19,11 +19,12 @@ import { AuthContext } from '../context/auth';
 import { useContext } from 'react';
 import { Router, useRouter } from 'next/router';
 import { async } from '@firebase/util';
+import Link from 'next/link';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Logout'];
 
-const NavBar = () => {
+const NavBar = ({ userData }) => {
 
     const router = useRouter()
     const { logout } = useContext(AuthContext)
@@ -53,7 +54,7 @@ const NavBar = () => {
     }
 
     return (
-        <AppBar position="static" className="navbar">
+        <AppBar position="static" className="navbar" style={{ backgroundColor: 'white' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -108,11 +109,11 @@ const NavBar = () => {
 
 
                     <Box sx={{ flexGrow: 0 }} className='nav-icontainer'>
-                        <HomeIcon fontSize='large' className='nav_icons' />
+                        <Link href='/'><HomeIcon fontSize='large' className='nav_icons' style={{ cursor: 'pointer' }} /></Link>
                         <ExploreIcon fontSize='large' className='nav_icons' />
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"
+                                <Avatar alt="Remy Sharp" src={userData?.photoURL}
                                     sx={{ margin: '0.5rem' }} />
                             </IconButton>
                         </Tooltip>
@@ -133,7 +134,7 @@ const NavBar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             <MenuItem onClick={handleCloseUserMenu}>
-                                <Typography textAlign="center">Profile</Typography>
+                                <Link href="/Profile"><Typography textAlign="center">Profile</Typography></Link>
                             </MenuItem>
                             <MenuItem onClick={() => {
                                 handleLogout()

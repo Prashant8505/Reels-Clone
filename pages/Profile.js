@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProfileComp from '../components/ProfileComp'
 import { useRouter } from 'next/router'
+import { AuthContext } from '../context/auth'
 
 function Profile() {
     const { user } = useContext(AuthContext)

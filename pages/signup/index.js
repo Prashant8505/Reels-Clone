@@ -70,7 +70,8 @@ function Index() {
               name: name,
               email: email,
               uid: user.user.uid,
-              photoURL: downloadURL
+              photoURL: downloadURL,
+              posts: []
             }
             setDoc(doc(db, "users", user.user.uid), obj)
             console.log("doc added")

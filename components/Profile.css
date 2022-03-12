@@ -18,11 +18,12 @@
     justify-content: center;
     flex-wrap: wrap;
 }
-.profile_videos > videos{
-    width: 20rem;
-    height: 50rem;
+.profile_videos > video{
+    width: 15rem;
+    height: 20rem;
     padding: 0.5rem;
-    margin: 2rem;
+    margin: 0.5rem;
+    object-fit: cover;
 }
 @media only screen and (max-width: 500px) {
     .profile_upper{

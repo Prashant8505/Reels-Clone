@@ -1,26 +1,60 @@
-import React from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import NavBar from './NavBar'
 import Img from '../assets/PRASHANT.jpeg'
+import { AuthContext } from '../context/auth';
+import { collection, doc, onSnapshot, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 
 function ProfileComp() {
+    const { user } = useContext(AuthContext)
+    const [userData, setUserData] = useState({})
+    const [postIds, setPostIds] = useState([])
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        console.log(user.uid)
+        const unsub = onSnapshot(doc(db, "users", user.uid), (doc) => {
+            console.log(doc.data())
+            setUserData(doc.data())
+            setPostIds(doc.data().posts)
+        })
+
+        return () => {
+            unsub()
+        }
+    }, [user])
+
+    useEffect(async () => {
+        let tempArray = []
+        postIds.map(async (postid, idx) => {
+            const unsub = onSnapshot(doc(db, "posts", postid), (doc) => {
+                tempArray.push(doc.data())
+                console.log(tempArray)
+                setPosts([...tempArray])
+            })
+        })
+    }, [postIds])
+
     return (
         <div>
             <NavBar />
             <div>
                 <div className="profile_upper">
-                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQEGbE3TmVxqFQ/profile-displayphoto-shrink_100_100/0/1642241026608?e=1652313600&v=beta&t=rmoOprHayAHxidUsIJ2ai4OqK5OirTZDoBjeHjHfNMk"
+                    <img src={userData.photoURL}
                         style={{ width: '8rem', height: '8rem', borderRadius: '50%' }} />
                     <div style={{ flexBasis: '40%' }}>
-                        <h1>Name</h1>
-                        <h3>Posts</h3>
+                        <h1>{userData.name}</h1>
+                        <h3>Posts : {userData?.posts?.length}</h3>
                     </div>
                 </div>
                 <hr />
                 <div className="profile_videos">
-                    <video src="https://www.instagram.com/p/CayTPNYlU7h/?utm_source=ig_web_copy_link" style={{ border: '2px solid black' }} />
-                    <video src="" style={{ border: '2px solid black' }} />
-                    <video src="" style={{ border: '2px solid red' }} />
-                    <video src="" style={{ border: '2px solid green' }} />
+                    {
+                        posts.map((post) => (
+                            <video src={post.postUrl} />
+                        ))
+                    }
+
                 </div>
             </div>
         </div >
