@@ -51,7 +51,7 @@ function ProfileComp() {
                 <div className="profile_videos">
                     {
                         posts.map((post) => (
-                            <video src={post.postUrl} />
+                            <video src={post.postUrl} key={post.postId} />
                         ))
                     }
 
