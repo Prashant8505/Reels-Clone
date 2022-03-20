@@ -59,6 +59,11 @@
     bottom: 30px;
     /* left: 5px; */
 }
+.mute{
+    position: absolute;
+    top: 10px;
+    color: white;
+}
 .avatar{
     display: flex;
     
